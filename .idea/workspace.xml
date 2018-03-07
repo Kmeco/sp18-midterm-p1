@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feb00be3-092e-427c-832d-49b7ad44f169" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-exported-files.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sp18-midterm-p1.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/contracts/Crowdsale.sol" afterPath="$PROJECT_DIR$/contracts/Crowdsale.sol" />
       <change beforePath="$PROJECT_DIR$/contracts/Queue.sol" afterPath="$PROJECT_DIR$/contracts/Queue.sol" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,8 +37,8 @@
       <file leaf-file-name="Queue.sol" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contracts/Queue.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+            <state relative-caret-position="806">
+              <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -70,7 +62,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="182" />
+    <option name="x" value="181" />
     <option name="y" value="23" />
     <option name="width" value="1152" />
     <option name="height" value="800" />
@@ -227,7 +219,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="182" y="23" width="1152" height="800" extended-state="0" />
+    <frame x="181" y="23" width="1152" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -321,7 +313,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
+    <entry file="file://$PROJECT_DIR$/contracts/Token.sol">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -329,7 +321,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/Token.sol">
+    <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -339,8 +331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contracts/Queue.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+        <state relative-caret-position="806">
+          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
           <folding />
         </state>
       </provider>

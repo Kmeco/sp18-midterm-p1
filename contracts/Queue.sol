@@ -18,10 +18,9 @@ contract Queue {
 	/* Add events */
 	// YOUR CODE HERE
 
-    function Queue(uint _startTime, unit _timeLimit) {
-        line = new address[](size);
+    function Queue(uint _startTime, uint _timeLimit) {
         numWaiting = 0;
-        unit startTime = _startTime;
+        startTime = _startTime;
         timeLimit = _timeLimit;
     }
 
@@ -37,14 +36,14 @@ contract Queue {
 
 	/* Returns the address of the person in the front of the queue */
 	function getFirst() constant returns(address) {
-	  return line[numWaiting - 1];
+	  return line[0];
 	}
 
 	/* Allows `msg.sender` to check their position in the queue */
 	function checkPlace() constant returns(uint8) {
 		for (uint8 i = 0; i < numWaiting; i++) {
 		    if (msg.sender == line[i]) {
-		        return numWaiting - i;
+		        return i + 1;
 		    }
 		}
 	}
@@ -62,15 +61,14 @@ contract Queue {
 	 * they are done with their purchase
 	 */
 	function dequeue() {
-
-        startTime = now;
+        delete line[0];
+        numWaiting--;
 	}
 
 	/* Places `addr` in the first empty position in the queue */
 	function enqueue(address addr) {
         if (numWaiting < size) {
-		    line.insert(0, addr);
-		    numWaiting++;
+		    numWaiting = line.push(addr);
 		}
 	}
 }
