@@ -10,4 +10,9 @@ import './interfaces/ERC20Interface.sol';
 
 contract Token is ERC20Interface {
 	// YOUR CODE HERE
+    mapping(address => uint) balances;
+
+    function Token(uint _totalSupply) public {
+        totalSupply = _totalSupply;
+    }
 }
