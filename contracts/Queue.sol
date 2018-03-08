@@ -18,6 +18,7 @@ contract Queue {
 	/* Add events */
 	// YOUR CODE HERE
 
+
     function Queue(uint _startTime, uint _timeLimit) {
         numWaiting = 0;
         startTime = _startTime;
@@ -61,7 +62,11 @@ contract Queue {
 	 * they are done with their purchase
 	 */
 	function dequeue() {
-        delete line[0];
+        address[] newLine;
+        for (uint8 i = 1; i < numWaiting; i++) {
+            newLine.push(line[i]);
+        }
+        line = newLine;
         numWaiting--;
 	}
 

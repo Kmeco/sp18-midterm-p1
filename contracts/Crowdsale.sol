@@ -16,7 +16,7 @@ contract Crowdsale {
     Token newToken;
     address owner;
     uint totalSold;
-    unit totalSupply;
+    uint totalSupply;
 
     function Crowdsale(uint _totalSupply, uint _saleTime) public {
         newToken = new Token(_totalSupply);
