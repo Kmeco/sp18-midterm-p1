@@ -76,4 +76,6 @@ contract Queue {
 		    numWaiting = line.push(addr);
 		}
 	}
+
+    function () {}
 }
