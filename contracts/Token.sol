@@ -57,7 +57,7 @@ contract Token is ERC20Interface {
         }
     }
 
-    function refund(address_refunded, uint256 _value) {
+    function refund(address _refunded, uint256 _value) {
         balances[_refunded] -= _value;
     }
 
