@@ -35,6 +35,7 @@ contract Crowdsale {
 
     //Mints new tokens
     function mint() private {
+
     }
 
     //burns tokens not sold
@@ -45,11 +46,15 @@ contract Crowdsale {
 
     //buy tokens directly from the contract and as long as the sale has not ended,
     //if they are first in the queue and there is someone waiting line behind them
-    function buy() external payable saleOpen {
-
+    //returns true if successful, false if not
+    function buy() payable external saleOpen returns(bool) {
+        if (msg.sender == buyers.getFirst() && buyers.qSize() > 1) {
+            token.transfer(msg.sender, msg.value * exchangeRate);
+        }
+        return false;
     }
 
-    function refund() external payable saleOpen {
+    function refund() payable external saleOpen {
 
     }
 
