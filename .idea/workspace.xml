@@ -9,9 +9,12 @@
     <list default="true" id="feb00be3-092e-427c-832d-49b7ad44f169" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/contracts/Crowdsale.sol" afterPath="$PROJECT_DIR$/contracts/Crowdsale.sol" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/contracts/Queue.sol" afterPath="$PROJECT_DIR$/contracts/Queue.sol" />
       <change beforePath="$PROJECT_DIR$/contracts/Token.sol" afterPath="$PROJECT_DIR$/contracts/Token.sol" />
 >>>>>>> db40576c61cec785889d5c41f34bc58fac22b166
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,9 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Crowdsale.sol" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Crowdsale.sol" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="-299">
+              <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="374">
@@ -93,6 +100,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-88">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
               <folding />
             </state>
           </provider>
@@ -101,16 +109,20 @@
       <file leaf-file-name="Queue.sol" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contracts/Queue.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="918">
+              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Token.sol" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Token.sol" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contracts/Token.sol">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="694">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="0">
@@ -133,12 +145,21 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="211">
               <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>token</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>newToken</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,12 +173,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/contracts/Queue.sol" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/contracts/Token.sol" />
+        <option value="$PROJECT_DIR$/contracts/Crowdsale.sol" />
+=======
         <option value="$PROJECT_DIR$/contracts/Crowdsale.sol" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/test/testTemplate.js" />
 =======
         <option value="$PROJECT_DIR$/contracts/Token.sol" />
 >>>>>>> db40576c61cec785889d5c41f34bc58fac22b166
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
       </list>
     </option>
   </component>
@@ -654,8 +680,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/Queue.sol">
+    <entry file="file://$PROJECT_DIR$/../sp18-lab03/contracts/GoodAuction.sol">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-782">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="0">
@@ -668,18 +698,22 @@
         <state relative-caret-position="810">
           <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
 >>>>>>> 6c5c2195d0051031d84011e0b05e7373cac5367d
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sp18-lab03/contracts/GoodAuction.sol">
+    <entry file="file://$PROJECT_DIR$/contracts/Queue.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="918">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/contracts/Token.sol">
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/contracts/interfaces/ERC20Interface.sol">
       <provider selected="true" editor-type-id="text-editor">
@@ -693,13 +727,20 @@
 =======
     <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
 >>>>>>> db40576c61cec785889d5c41f34bc58fac22b166
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+        <state relative-caret-position="694">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+=======
     <entry file="file://$PROJECT_DIR$/testfile.java" />
     <entry file="file://$PROJECT_DIR$/contracts/Crowdsale.sol">
       <provider selected="true" editor-type-id="text-editor">
@@ -731,6 +772,7 @@
         <state relative-caret-position="200">
           <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
 >>>>>>> 6c5c2195d0051031d84011e0b05e7373cac5367d
+>>>>>>> 3fddc11fbaf811302851adb10d849ece62815398
           <folding />
         </state>
       </provider>
