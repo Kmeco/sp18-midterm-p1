@@ -17,9 +17,9 @@ contract('testICO', function(accounts) {
 
 	/* Do something before every `describe` method */
 	beforeEach(async function() {
-		// YOUR CODE HERE
-        crowdsale = await Crowdsale.new(args._totalSupply, args._duration);
-        queue = await Queue.new(now, args._timeLimit)
+		// YOUR CODE HERE/
+        //crowdsale = await Crowdsale.new(args._totalSupply, args._duration);
+        queue = await Queue.new(args._timeLimit, args._timeLimit);
 	});
 
 	/* Group test cases together 
@@ -29,11 +29,13 @@ contract('testICO', function(accounts) {
 	describe('--Queue works--', function() {
 		it("Returns the correct number of people waiting in line after" +
 			"enqueue", async function() {
-			assert.equal(queue.empty(), true, "empty function works")
+			assert.equal(queue.empty(), true, "empty function works");
 			queue.enqueue(users.one);
             assert.equal(queue.qsize(), 1, "enqueue and qsize work");
             queue.enqueue(users.two);
-            assert.equal(queue.)
+            assert.equal(queue.getFirst(), users.one, ".getFirst works" +
+				" correctly");
+
 		});
 		// YOUR CODE HERE
 	});

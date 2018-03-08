@@ -13,7 +13,7 @@ contract Crowdsale {
     address owner;
     Queue buyers;
 
-    Token newToken;
+    Token token;
     //amount of tokens 1 wei is worth
     uint exchangeRate;
     uint totalSold;
@@ -23,14 +23,14 @@ contract Crowdsale {
 
     function Crowdsale(uint _totalSupply, uint _saleTime) public {
         owner = msg.sender;
-        newToken = new Token(_totalSupply);
+        token = new Token(_totalSupply);
         startTime = now;
         saleEnd = now + _saleTime;
     }
 
 
     //Forwards all funds to owner after sale is over
-    function forwardFunds() private payable {
+    function forwardFunds() private {
     }
 
     //Mints new tokens
@@ -48,7 +48,7 @@ contract Crowdsale {
     //if they are first in the queue and there is someone waiting line behind them
     //returns true if successful, false if not
     function buy() payable external saleOpen returns(bool) {
-        if (msg.sender == buyers.getFirst() && buyers.qSize() > 1) {
+        if (msg.sender == buyers.getFirst() && buyers.qsize() > 1) {
             token.transfer(msg.sender, msg.value * exchangeRate);
         }
         return false;
