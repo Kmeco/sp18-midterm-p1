@@ -61,14 +61,16 @@ contract Queue {
 	/* Removes the first person in line; either when their time is up or when
 	 * they are done with their purchase
 	 */
-	function dequeue() {
+	function dequeue() returns(address){
         address[] newLine;
         for (uint8 i = 1; i < numWaiting; i++) {
             newLine.push(line[i]);
         }
+        address first = line[0];
         line = newLine;
 		startTime = now;
         numWaiting--;
+        return first;
 	}
 
 	/* Places `addr` in the first empty position in the queue */
