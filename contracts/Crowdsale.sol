@@ -25,16 +25,15 @@ contract Crowdsale {
         owner = msg.sender;
         newToken = new Token(_totalSupply);
         exchangeRate = _exchangeRate;
-        this.balance = _totalSupply * _exchangeRate;
         startTime = now;
         saleEnd = now + _saleTime;
     }
 
 
     //Forwards all funds to owner after sale is over
-    function forwardFunds() private payable returns(bool) {
+    function forwardFunds() returns(bool) {
         if (now > saleEnd) {
-            owner.transfer(this.balance);
+            owner.transfer(newToken.balanceOf(msg.sender));
             return true;
         }
         return false;
@@ -53,7 +52,7 @@ contract Crowdsale {
 
     modifier saleOpen {if (now < saleEnd) _;}
 
-    modifier inStock {if (newToken.totalSupply > totalSold) _;}
+    modifier inStock {if (newToken.totalSupply() > totalSold) _;}
 
     //buy tokens directly from the contract and as long as the sale has not ended,
     //if they are first in the queue and there is someone waiting line behind them
@@ -69,8 +68,8 @@ contract Crowdsale {
 
     function refund() payable external saleOpen {
         require(newToken.balanceOf(msg.sender) >= msg.value);
-        msg.sender.send(msg.value);
-        newToken.approve(this, msg.sender, msg.value * exchangeRate);
+        msg.sender.transfer(msg.value);
+        newToken.approve(msg.sender, msg.value * exchangeRate);
         newToken.transferFrom(this, msg.sender, msg.value * exchangeRate);
         totalSold -= msg.value * exchangeRate;
     }
