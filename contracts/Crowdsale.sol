@@ -23,7 +23,7 @@ contract Crowdsale {
 
     function Crowdsale(uint256 _totalSupply, uint256 _exchangeRate, uint _saleTime) public {
         owner = msg.sender;
-        newToken = new Token(_totalSupply);
+        token = new Token(_totalSupply);
         exchangeRate = _exchangeRate;
         startTime = now;
         saleEnd = now + _saleTime;
@@ -33,7 +33,7 @@ contract Crowdsale {
     //Forwards all funds to owner after sale is over
     function forwardFunds() returns(bool) {
         if (now > saleEnd) {
-            owner.transfer(newToken.balanceOf(msg.sender));
+            owner.transfer(token.balanceOf(msg.sender));
             return true;
         }
         return false;
@@ -41,25 +41,25 @@ contract Crowdsale {
 
     //Mints new tokens
     function mint() private {
-        newToken.changeSupply(1, true);
+        token.changeSupply(1, true);
     }
 
     //burns tokens not sold
     function burn() private {
-        uint256 unsold = newToken.totalSupply() - totalSold;
-        newToken.changeSupply(unsold, false);
+        uint256 unsold = token.totalSupply() - totalSold;
+        token.changeSupply(unsold, false);
     }
 
     modifier saleOpen {if (now < saleEnd) _;}
 
-    modifier inStock {if (newToken.totalSupply() > totalSold) _;}
+    modifier inStock {if (token.totalSupply() > totalSold) _;}
 
     //buy tokens directly from the contract and as long as the sale has not ended,
     //if they are first in the queue and there is someone waiting line behind them
     //returns true if successful, false if not
     function buy() payable external saleOpen inStock returns(bool) {
         if (msg.sender == buyers.getFirst() && buyers.qsize() > 1) {
-            newToken.transfer(msg.sender, msg.value * exchangeRate);
+            token.transfer(msg.sender, msg.value * exchangeRate);
             totalSold += msg.value * exchangeRate;
             return true;
         }
@@ -67,10 +67,10 @@ contract Crowdsale {
     }
 
     function refund() payable external saleOpen {
-        require(newToken.balanceOf(msg.sender) >= msg.value);
+        require(token.balanceOf(msg.sender) >= msg.value);
         msg.sender.transfer(msg.value);
-        newToken.approve(msg.sender, msg.value * exchangeRate);
-        newToken.transferFrom(this, msg.sender, msg.value * exchangeRate);
+        token.approve(msg.sender, msg.value * exchangeRate);
+        token.transferFrom(this, msg.sender, msg.value * exchangeRate);
         totalSold -= msg.value * exchangeRate;
     }
 
