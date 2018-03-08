@@ -67,6 +67,7 @@ contract Queue {
             newLine.push(line[i]);
         }
         line = newLine;
+		startTime = now;
         numWaiting--;
 	}
 

@@ -29,14 +29,17 @@ contract Token is ERC20Interface {
     }
 
     function transfer(address _to, uint256 _value) returns (bool success) {
+        require(balances[msg.sender] >= _value);
+        balances[msg.sender] -= _value;
         balances[_to] += _value;
-        //return;
+        Transfer(msg.sender, _to, _value);
+        return true;
     }
 
     function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
         require(allowed[_from][_to] >= _value);
         balances[_from] -= _value;
-        balances[_to] -= value;
+        balances[_to] -= _value;
         allowed[_from][_to] -= _value;
         Transfer(_from, _to, _value);
         return true;
