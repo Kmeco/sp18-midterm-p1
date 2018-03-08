@@ -13,7 +13,7 @@ contract Crowdsale {
     address owner;
     Queue buyers;
 
-    Token newToken;
+    Token token;
     //amount of tokens 1 wei is worth
     uint256 exchangeRate;
     uint256 totalSold;

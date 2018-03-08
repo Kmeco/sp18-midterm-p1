@@ -11,7 +11,7 @@ contract Queue {
 	/* State variables */
 	uint8 size = 5;
     address[] line;
-    uint8 numWaiting;
+    uint256 numWaiting;
     uint startTime;
     uint timeLimit;
 
@@ -26,7 +26,7 @@ contract Queue {
     }
 
 	/* Returns the number of people waiting in line */
-	function qsize() constant returns(uint8) {
+	function qsize() constant returns(uint256) {
 		return numWaiting;
 	}
 
