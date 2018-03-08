@@ -1,6 +1,7 @@
 pragma solidity ^0.4.15;
 
 import './interfaces/ERC20Interface.sol';
+import './utils/SafeMath.sol';
 
 /**
  * @title Token
@@ -16,6 +17,7 @@ contract Token is ERC20Interface {
 
     function Token(uint _totalSupply) public {
         totalSupply = _totalSupply;
+        balances[msg.sender] = _totalSupply;
     }
 
     function balanceOf(address _owner) constant returns (uint256 balance) {
@@ -24,17 +26,18 @@ contract Token is ERC20Interface {
 
     function transfer(address _to, uint256 _value) returns (bool success) {
         require(balances[msg.sender] >= _value);
-        balances[msg.sender] -= _value;
-        balances[_to] += _value;
+        balances[msg.sender].sub(_value);
+        balances[_to].add(_value);
         Transfer(msg.sender, _to, _value);
         return true;
     }
 
     function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
         require(allowed[_from][_to] >= _value);
-        balances[_from] -= _value;
-        balances[_to] -= _value;
-        allowed[_from][_to] -= _value;
+        require(balances[_from] >= _value);
+        balances[_from].sub(_value);
+        balances[_to].add(_value);
+        allowed[_from][_to].sub(_value);
         Transfer(_from, _to, _value);
         return true;
     }
