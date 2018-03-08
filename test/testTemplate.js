@@ -11,6 +11,7 @@ contract('testICO', function(accounts) {
 	 * ones
 	 */
 	const args = {_duration : 10000, _timeLimit : 1000, _totalSupply : 1000000};
+	const users = {one : 0x4d4c12682a3c5cf1ba6b9ca580b5934c49124f6a, two : 0x9967389621360ed69358b3e77c28beaa0e1a815f};
 	let myToken, crowdsale, queue;
 	// YOUR CODE HERE
 
@@ -26,8 +27,13 @@ contract('testICO', function(accounts) {
 	 * assert statements
 	 */
 	describe('--Queue works--', function() {
-		it("Returns the number of people waiting in line", async function() {
-			
+		it("Returns the correct number of people waiting in line after" +
+			"enqueue", async function() {
+			assert.equal(queue.empty(), true, "empty function works")
+			queue.enqueue(users.one);
+            assert.equal(queue.qsize(), 1, "enqueue and qsize work");
+            queue.enqueue(users.two);
+            assert.equal(queue.)
 		});
 		// YOUR CODE HERE
 	});
