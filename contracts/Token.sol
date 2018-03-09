@@ -11,6 +11,8 @@ import './utils/SafeMath.sol';
 
 contract Token is ERC20Interface {
 
+    using SafeMath for uint256;
+
     mapping(address => uint256) balances;
 
     mapping(address => mapping (address => uint256)) allowed;
@@ -60,7 +62,7 @@ contract Token is ERC20Interface {
         }
     }
 
-    function refund(address_refunded, uint256 _value) {
+    function refund(address _refunded, uint256 _value) {
         balances[_refunded] -= _value;
     }
 

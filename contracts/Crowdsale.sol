@@ -11,8 +11,7 @@ import './Token.sol';
 
 contract Crowdsale {
     address owner;
-    Queue buyers;
-
+    Queue public buyers;
     Token token;
     //amount of tokens 1 wei is worth
     uint256 exchangeRate;
@@ -24,28 +23,38 @@ contract Crowdsale {
     function Crowdsale(uint256 _totalSupply, uint256 _exchangeRate, uint _saleTime) public {
         owner = msg.sender;
         token = new Token(_totalSupply);
+        buyers = new Queue(now, 1000);
         exchangeRate = _exchangeRate;
         startTime = now;
         saleEnd = now + _saleTime;
     }
 
+    function getInLine(); 
+
+    /* 	Consider implementing this modifier
+		and applying it to the reduceBid function
+		you fill in below. */
+    modifier isOwner() {
+        require(msg.sender == owner);
+        _;
+    }
 
     //Forwards all funds to owner after sale is over
-    function forwardFunds() returns(bool) {
+    function forwardFunds() isOwner returns(bool) {
         if (now > saleEnd) {
-            owner.transfer(token.balanceOf(msg.sender));
+            owner.transfer(this.balance);
             return true;
         }
         return false;
     }
 
     //Mints new tokens
-    function mint() private {
+    function mint() isOwner private {
         token.changeSupply(1, true);
     }
 
     //burns tokens not sold
-    function burn() private {
+    function burn() isOwner private {
         uint256 unsold = token.totalSupply() - totalSold;
         token.changeSupply(unsold, false);
     }
@@ -59,6 +68,7 @@ contract Crowdsale {
     //returns true if successful, false if not
     function buy() payable external saleOpen inStock returns(bool) {
         if (msg.sender == buyers.getFirst() && buyers.qsize() > 1) {
+            buyers.dequeue();
             token.transfer(msg.sender, msg.value * exchangeRate);
             totalSold += msg.value * exchangeRate;
             return true;
@@ -73,5 +83,7 @@ contract Crowdsale {
         totalSold -= msg.value * exchangeRate;
     }
 
-    function () payable {}
+    function () payable {
+        revert();
+    }
 }

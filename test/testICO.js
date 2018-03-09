@@ -11,15 +11,16 @@ contract('testICO', function(accounts) {
 	 * ones
 	 */
 	const args = {_duration : 10000, _timeLimit : 1000, _totalSupply : 1000000, _exchangeRate : 2};
-	const users = {one : 0x4d4c12682a3c5cf1ba6b9ca580b5934c49124f6a, two : 0x9967389621360ed69358b3e77c28beaa0e1a815f};
+	const users = { one : "0x9b520632fbdc4a12d0c9687dea417cf5b820e8ca",
+                    two : "0x2cd312b9cf1f62efbced9a0394b0d9c8b218cb22"};
 	let myToken, crowdsale, queue;
 	// YOUR CODE HERE
 
 	/* Do something before every `describe` method */
 	beforeEach(async function() {
 		// YOUR CODE HERE/
-        //crowdsale = await Crowdsale.new(args._totalSupply,
-		// args._exchangeRate, args._duration);
+        crowdsale = await Crowdsale.new(args._totalSupply,
+										args._exchangeRate, args._duration);
         queue = await Queue.new(args._timeLimit, args._timeLimit);
 	});
 
@@ -30,20 +31,26 @@ contract('testICO', function(accounts) {
 	describe('--Queue works--', function() {
 		it("Returns the correct number of people waiting in line after" +
 			"enqueue", async function() {
-			let isEmpty = await queue.empty();
-			assert.equal(isEmpty, true, "empty function works");
+			assert.equal(await queue.empty(), true, "empty function works");
 			await queue.enqueue(users.one);
-            let size = await queue.qsize();
-            assert.equal(size.valueOf(), 1, "enqueue and qsize work");
             await queue.enqueue(users.two);
-            let first = await queue.getFirst();
-            assert.equal(first, users.one, ".getFirst works" +
+            assert.equal(await queue.qsize().valueOf(), 2, "enqueue and" +
+			" qsize work");
+            assert.equal(await queue.getFirst(), users.one, ".getFirst works" +
 				" correctly");
+            await queue.dequeue();
+            assert.equal(await queue.getFirst(), users.two, ".dequeue works");
 		});
-
 	});
 
-	describe('Your string here', function() {
+	describe('--Crowdsale works--', function() {
 		// YOUR CODE HERE
+		it("allows the first person in the queue to buy Tokens", async function() {
+            await crowdsale.buyers.enqueue(users.one);
+            await crowdsale.buyers.enqueue(users.two);
+            await crowdsale.buy.call({from : users.one, value : 2});
+            //assert.equal(await crowdsale.token.balanceOf(user.one), 4,
+            // "Token balance is updated correctly.");
+		});
 	});
 });

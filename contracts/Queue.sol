@@ -11,6 +11,7 @@ contract Queue {
 	/* State variables */
 	uint8 size = 5;
     address[] line;
+	address[] newLine;
     uint256 numWaiting;
     uint startTime;
     uint timeLimit;
@@ -62,7 +63,6 @@ contract Queue {
 	 * they are done with their purchase
 	 */
 	function dequeue() {
-        address[] newLine;
         for (uint8 i = 1; i < numWaiting; i++) {
             newLine.push(line[i]);
         }
