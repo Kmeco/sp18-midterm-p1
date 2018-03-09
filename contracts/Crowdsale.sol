@@ -78,9 +78,10 @@ contract Crowdsale {
 
     function refund() payable external saleOpen {
         require(token.balanceOf(msg.sender) >= msg.value);
-        msg.sender.transfer(msg.value);
-        token.refund(msg.sender, msg.value * exchangeRate);
-        totalSold -= msg.value * exchangeRate;
+        uint256 refundAmount = token.balanceOf(msg.sender);
+        msg.sender.transfer(refundAmount / exchangeRate);
+        token.refund(msg.sender, refundAmount);
+        totalSold -= refundAmount;
     }
 
     function () payable {
